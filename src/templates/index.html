@@ -6,14 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Free movie catalogue for you">
     <link rel="icon" href="./favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Quicksand:wght@500&family=Shantell+Sans:wght@700&family=Tilt+Prism&display=swap"
+        rel="stylesheet">
     <link rel="manifest" href="./app.webmanifest">
     <meta name="theme-color" content="#DB0000" />
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
     <script src="https://use.fontawesome.com/b070c8f1df.js"></script>
 
     <title>Restoran Catalogue</title>
+
+    <!-- STYLING DARK MODE -->
+    <style>
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        .dark-mode .artikel {
+            color: black;
+        }
+
+        .dark-mode .header__title {
+            color: rgb(245, 242, 242);
+        }
+    </style>
+
+    <!-- JAVASCRIPT DARK MODE -->
+    <script>
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+    </script>
 </head>
+<!-- AKSESIBILITAS SKIP CONTENT -->
+<a href="#mainContent" class="skip-link">Skip to content ?</a>
 
 <body>
     <header class="app-bar">
@@ -27,11 +56,29 @@
             <ul>
                 <li><a href="#/now-playing">Home</a></li>
                 <li><a href="#/like">Favorite</a></li>
+                <li><a href="https://github.com/LexuzZ">About Us</a></li>
+                <li>
+                    <a href="#" onclick="myFunction()"><i data-feather="moon"></i></a>
+                </li>
 
             </ul>
         </nav>
     </header>
-    <main id="mainContent"></main>
+    <section>
+        <!-- JUMBOTRON -->
+        <div class="hero-jumbotron">
+            <div class="hero-inner">
+                <h1 class="hero-title">Pawon Sasak</h1>
+                <p class="hero-description">
+                    Temukan Restaurant dengan rating terbaik.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- card -->
+    <main id="mainContent" tabindex="0"></main>
     <footer>
         <div id="footerTools">
             <button id="subscribePushNotification" class="btn">Subscribe Push Notification</button>
@@ -40,6 +87,11 @@
         <p>All data obtained from <a href="https://restaurant-api.dicoding.dev/" target="_blank" rel="noreferrer">Pawon
                 Sasak</a></p>
     </footer>
+
+    <!-- FEATHER ICON -->
+    <script>
+        feather.replace();
+    </script>
 </body>
 
 </html>
