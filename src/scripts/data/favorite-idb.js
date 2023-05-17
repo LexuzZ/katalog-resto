@@ -1,6 +1,3 @@
-/* eslint-disable no-dupe-keys */
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-empty-function */
 import { openDB } from 'idb';
 import CONFIG from '../globals/config';
 
@@ -11,6 +8,7 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
     database.createObjectStore(OBJECT_STORE_NAME, { keyPath: 'id' });
   },
 });
+
 const FavoriteMovieIdb = {
   async getMovie(id) {
     if (!id) {
@@ -19,7 +17,6 @@ const FavoriteMovieIdb = {
 
     return (await dbPromise).get(OBJECT_STORE_NAME, id);
   },
-
   async getAllMovies() {
     return (await dbPromise).getAll(OBJECT_STORE_NAME);
   },
@@ -37,8 +34,10 @@ const FavoriteMovieIdb = {
     return (await this.getAllMovies()).filter((movie) => {
       const loweredCaseMovieTitle = (movie.title || '-').toLowerCase();
       const jammedMovieTitle = loweredCaseMovieTitle.replace(/\s/g, '');
+
       const loweredCaseQuery = query.toLowerCase();
       const jammedQuery = loweredCaseQuery.replace(/\s/g, '');
+
       return jammedMovieTitle.indexOf(jammedQuery) !== -1;
     });
   },
