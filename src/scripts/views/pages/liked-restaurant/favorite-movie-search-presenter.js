@@ -1,13 +1,8 @@
-/* eslint-disable class-methods-use-this */
-/* eslint-disable no-unused-vars */
-const _showFoundMovies = (movies) => {
-  this._view.showMovies(movies);
-};
 class FavoriteMovieSearchPresenter {
   constructor({ favoriteMovies, view }) {
     this._view = view;
-    this._favoriteMovies = favoriteMovies;
     this._listenToSearchRequestByUser();
+    this._favoriteMovies = favoriteMovies;
   }
 
   _listenToSearchRequestByUser() {
@@ -26,7 +21,7 @@ class FavoriteMovieSearchPresenter {
       foundMovies = await this._favoriteMovies.getAllMovies();
     }
 
-    _showFoundMovies(foundMovies);
+    this._showFoundMovies(foundMovies);
   }
 
   _showFoundMovies(movies) {

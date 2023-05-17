@@ -1,14 +1,16 @@
-/* eslint-disable no-undef */
+/* eslint-disable import/named */
+import { createMovieItemTemplate } from '../../templates/template-creator';
+
 class FavoriteMovieSearchView {
   getTemplate() {
     return `
-       <div class="content">
-       <input id="query" type="text">
-       <h2 class="content__heading">Your Liked Movie</h2>
-           <div id="movies" class="movies">
-           </div>
-       </div>
-       `;
+      <div class="content">
+      <input id="query" type="text">
+      <h2 class="content__heading">Your Liked Movie</h2>
+        <div id="movies" class="movies">
+        </div>
+      </div>
+   `;
   }
 
   runWhenUserIsSearching(callback) {
