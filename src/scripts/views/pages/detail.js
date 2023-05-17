@@ -2,7 +2,8 @@
 import UrlParser from '../../routes/url-parser';
 import RestaurantDbSource from '../../data/restaurantdb-source';
 import { createRestaurantDetailTemplate } from '../templates/template-creator';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
+import FavoriteMovieIdb from '../../data/favorite-idb';
 
 const Detail = {
   async render() {
@@ -18,14 +19,15 @@ const Detail = {
     const movieContainer = document.querySelector('#movie');
 
     movieContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
-    LikeButtonInitiator.init({
+    LikeButtonPresenter.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      favoriteMovies: FavoriteMovieIdb,
       movie: {
-        id: restaurant.id,
-        name: restaurant.name,
-        description: restaurant.description,
-        pictureId: restaurant.pictureId,
-        rating: restaurant.rating,
+        id: movie.id,
+        title: movie.title,
+        overview: movie.overview,
+        backdrop_path: movie.backdrop_path,
+        vote_average: movie.vote_average,
       },
     });
   },
