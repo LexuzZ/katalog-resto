@@ -57,10 +57,10 @@ describe('Showing all favorite movies', () => {
       const favoriteMovies = spyOnAllFunctions(FavoriteMovieIdb);
       favoriteMovies.getAllMovies.and.returnValues([
         {
-          id: 11, title: 'A', vote_average: 3, overview: 'Sebuah film A',
+          id: 11, name: 'A', rating: 3, description: 'Sebuah film A',
         },
         {
-          id: 22, title: 'B', vote_average: 4, overview: 'Sebuah film B',
+          id: 22, name: 'B', rating: 4, description: 'Sebuah film B',
         },
       ]);
 

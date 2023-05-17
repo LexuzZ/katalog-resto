@@ -1,5 +1,5 @@
 /* eslint-disable import/named */
-import { createMovieItemTemplate } from '../../templates/template-creator';
+import { createRestaurantItemTemplate } from '../../templates/template-creator';
 
 class FavoriteMovieSearchView {
   getTemplate() {
@@ -26,7 +26,7 @@ class FavoriteMovieSearchView {
   showFavoriteMovies(movies = []) {
     let html;
     if (movies.length) {
-      html = movies.reduce((carry, movie) => carry.concat(createMovieItemTemplate(movie)), '');
+      html = movies.reduce((carry, restaurant) => carry.concat(createRestaurantItemTemplate(restaurant)), '');
     } else {
       html = this._getEmptyMovieTemplate();
     }
@@ -37,7 +37,7 @@ class FavoriteMovieSearchView {
   }
 
   _getEmptyMovieTemplate() {
-    return '<div class="movie-item__not__found movies__not__found">Tidak ada film untuk ditampilkan</div>';
+    return '<div class="movie-item__not__found movies__not__found">Tidak ada restoran untuk ditampilkan</div>';
   }
 }
 

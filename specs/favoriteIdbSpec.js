@@ -4,8 +4,8 @@ import FavoriteMovieIdb from '../src/scripts/data/favorite-idb';
 
 describe('Favorite Movie Idb Contract Test Implementation', () => {
   afterEach(async () => {
-    (await FavoriteMovieIdb.getAllMovies()).forEach(async (movie) => {
-      await FavoriteMovieIdb.deleteMovie(movie.id);
+    (await FavoriteMovieIdb.getAllMovies()).forEach(async (restaurant) => {
+      await FavoriteMovieIdb.deleteMovie(restaurant.id);
     });
   });
 

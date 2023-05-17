@@ -20,19 +20,19 @@ const FavoriteMovieIdb = {
   async getAllMovies() {
     return (await dbPromise).getAll(OBJECT_STORE_NAME);
   },
-  async putMovie(movie) {
-    if (!movie.hasOwnProperty('id')) {
+  async putMovie(restaurant) {
+    if (!restaurant.hasOwnProperty('id')) {
       return;
     }
 
-    return (await dbPromise).put(OBJECT_STORE_NAME, movie);
+    return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
   },
   async deleteMovie(id) {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);
   },
   async searchMovies(query) {
-    return (await this.getAllMovies()).filter((movie) => {
-      const loweredCaseMovieTitle = (movie.title || '-').toLowerCase();
+    return (await this.getAllMovies()).filter((restaurant) => {
+      const loweredCaseMovieTitle = (restaurant.name || '-').toLowerCase();
       const jammedMovieTitle = loweredCaseMovieTitle.replace(/\s/g, '');
 
       const loweredCaseQuery = query.toLowerCase();

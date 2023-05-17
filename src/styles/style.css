@@ -245,7 +245,7 @@ main {
     Movie
   */
 
-.movie {
+.restaurant {
     margin: 0 auto;
     width: 100%;
     max-width: 800px;
@@ -254,12 +254,12 @@ main {
     gap: 18px 16px;
 }
 
-.movie .movie__poster {
+.restaurant .movie__poster {
     width: 100%;
     max-width: 400px;
 }
 
-.movie .movie__info h4 {
+.restaurant .movie__info h4 {
     margin: 8px 0;
 }
 

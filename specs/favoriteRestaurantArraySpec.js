@@ -11,36 +11,36 @@ const FavoriteMovieArray = {
       return;
     }
 
-    return favoriteMovies.find((movie) => movie.id === id);
+    return favoriteMovies.find((restaurant) => restaurant.id === id);
   },
 
   getAllMovies() {
     return favoriteMovies;
   },
 
-  putMovie(movie) {
-    if (!movie.hasOwnProperty('id')) {
+  putMovie(restaurant) {
+    if (!restaurant.hasOwnProperty('id')) {
       return;
     }
 
     // pastikan id ini belum ada dalam daftar favoriteMovies
-    if (this.getMovie(movie.id)) {
+    if (this.getMovie(restaurant.id)) {
       return;
     }
 
-    favoriteMovies.push(movie);
+    favoriteMovies.push(restaurant);
   },
 
   deleteMovie(id) {
     // cara boros menghapus film dengan meng-copy film yang ada
     // kecuali film dengan id == id
-    favoriteMovies = favoriteMovies.filter((movie) => movie.id !== id);
+    favoriteMovies = favoriteMovies.filter((restaurant) => restaurant.id !== id);
   },
 
   searchMovies(query) {
     return this.getAllMovies()
-      .filter((movie) => {
-        const loweredCaseMovieTitle = (movie.title || '-').toLowerCase();
+      .filter((restaurant) => {
+        const loweredCaseMovieTitle = (restaurant.name || '-').toLowerCase();
         const jammedMovieTitle = loweredCaseMovieTitle.replace(/\s/g, '');
 
         const loweredCaseQuery = query.toLowerCase();

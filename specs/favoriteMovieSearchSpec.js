@@ -56,10 +56,10 @@ describe('Searching movies', () => {
 
       presenter._showFoundMovies([{
         id: 1,
-        title: 'Satu',
+        name: 'Satu',
       }, {
         id: 2,
-        title: 'Dua',
+        name: 'Dua',
       }]);
       expect(document.querySelectorAll('.movie-item').length)
         .toEqual(2);
@@ -68,16 +68,16 @@ describe('Searching movies', () => {
     it('should show the title of the found movies', () => {
       presenter._showFoundMovies([{
         id: 1,
-        title: 'Satu',
+        name: 'Satu',
       }]);
-      expect(document.querySelectorAll('.movie__title')
+      expect(document.querySelectorAll('.restaurant__title')
         .item(0).textContent)
         .toEqual('Satu');
     });
 
     it('should show - when the movie returned does not contain a title', (done) => {
       document.getElementById('movies').addEventListener('movies:updated', () => {
-        const movieTitles = document.querySelectorAll('.movie__title');
+        const movieTitles = document.querySelectorAll('.restaurant__title');
         expect(movieTitles.item(0).textContent).toEqual('-');
 
         done();

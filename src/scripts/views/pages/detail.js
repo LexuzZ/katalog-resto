@@ -22,12 +22,13 @@ const Detail = {
     LikeButtonPresenter.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       favoriteMovies: FavoriteMovieIdb,
-      movie: {
-        id: movie.id,
-        title: movie.title,
-        overview: movie.overview,
-        backdrop_path: movie.backdrop_path,
-        vote_average: movie.vote_average,
+      restaurant: {
+        id: restaurant.id,
+        name: restaurant.name,
+        description: restaurant.description,
+        pictureId: restaurant.pictureId,
+        rating: restaurant.rating,
+
       },
     });
   },
