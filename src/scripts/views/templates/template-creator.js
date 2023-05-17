@@ -29,15 +29,15 @@ const createRestaurantDetailTemplate = (restaurant) => `
 const createRestaurantItemTemplate = (restaurants) => `
   <div class="movie-item">
     <div class="movie-item__header">
-      <img class="movie-item__header__poster" alt="${restaurants.name}"
+      <img class="movie-item__header__poster" alt="${restaurants.name || '-'}"
            src="${CONFIG.BASE_IMAGE_URL}${restaurants.pictureId}">
       <div class="movie-item__header__rating">
-        <p>⭐️<span class="movie-item__header__rating__score">${restaurants.rating}</span></p>
+        <p>⭐️<span class="movie-item__header__rating__score">${restaurants.rating || '-'}</span></p>
       </div>
     </div>
     <div class="movie-item__content">
-      <h3><a href="/#/detail/${restaurants.id}">${restaurants.name}</a></h3>
-      <p>${restaurants.description}</p>
+      <h3><a href="/#/detail/${restaurants.id}">${restaurants.name || '-'}</a></h3>
+      <p>${restaurants.description || '-'}</p>
     </div>
   </div>
 `;
