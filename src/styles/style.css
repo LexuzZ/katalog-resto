@@ -146,6 +146,13 @@ main {
     background-color: Black !important;
 }
 
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .hero-jumbotron {
+        background-image: url('../public/hero-image_4.jpg');
+    }
+}
+
 .hero-inner {
     margin: 0 auto;
     max-width: 800px;
@@ -171,7 +178,7 @@ main {
     Movies
   */
 
-.movies {
+.restaurant {
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
@@ -183,22 +190,22 @@ main {
     Movie Item
   */
 
-.movie-item {
+.restaurant-item {
     width: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     overflow: hidden;
 }
 
-.movie-item__header {
+.restaurant-item__header {
     position: relative;
 }
 
-.movie-item .movie-item__header .movie-item__header__poster {
+.restaurant-item .restaurant-item__header .restaurant-item__header__poster {
     width: 100%;
 }
 
-.movie-item .movie-item__header .movie-item__header__rating {
+.restaurant-item .restaurant-item__header .restaurant-item__header__rating {
     position: absolute;
     padding: 8px;
     bottom: 20px;
@@ -208,19 +215,19 @@ main {
     color: white;
 }
 
-.movie-item .movie-item__header .movie-item__header__rating .movie-item__header__rating__score {
+.restaurant-item .restaurant-item__header .restaurant-item__header__rating .restaurant-item__header__rating__score {
     margin-left: 10px;
 }
 
-.movie-item .movie-item__content {
+.restaurant-item .restaurant-item__content {
     padding: 16px;
 }
 
-.movie-item .movie-item__content h3 {
+.restaurant-item .restaurant-item__content h3 {
     margin: 0 0 10px 0;
 }
 
-.movie-item .movie-item__content h3 a {
+.restaurant-item .restaurant-item__content h3 a {
     display: inline-block;
     color: #db0000;
     text-decoration: none;
@@ -231,7 +238,7 @@ main {
 
 
 
-.movie-item .movie-item__content p {
+.restaurant-item .restaurant-item__content p {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

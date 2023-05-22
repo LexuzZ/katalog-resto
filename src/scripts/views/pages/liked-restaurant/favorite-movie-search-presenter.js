@@ -1,31 +1,31 @@
 class FavoriteMovieSearchPresenter {
-  constructor({ favoriteMovies, view }) {
+  constructor({ favoriteRestaurant, view }) {
     this._view = view;
     this._listenToSearchRequestByUser();
-    this._favoriteMovies = favoriteMovies;
+    this._favoriteRestaurant = favoriteRestaurant;
   }
 
   _listenToSearchRequestByUser() {
     this._view.runWhenUserIsSearching((latestQuery) => {
-      this._searchMovies(latestQuery);
+      this._searchRestaurant(latestQuery);
     });
   }
 
-  async _searchMovies(latestQuery) {
+  async _searchRestaurant(latestQuery) {
     this._latestQuery = latestQuery.trim();
 
-    let foundMovies;
+    let foundRestaurant;
     if (this.latestQuery.length > 0) {
-      foundMovies = await this._favoriteMovies.searchMovies(this.latestQuery);
+      foundRestaurant = await this._favoriteRestaurant._searchRestaurant(this.latestQuery);
     } else {
-      foundMovies = await this._favoriteMovies.getAllMovies();
+      foundRestaurant = await this._favoriteRestaurant.getAllRestaurant();
     }
 
-    this._showFoundMovies(foundMovies);
+    this._showFoundRestaurant(foundRestaurant);
   }
 
-  _showFoundMovies(movies) {
-    this._view.showFavoriteMovies(movies);
+  _showFoundRestaurant(restaurants) {
+    this._view.showFavoriteRestaurant(restaurants);
   }
 
   get latestQuery() {

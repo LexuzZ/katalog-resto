@@ -1,6 +1,5 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/extensions */
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+
 import 'regenerator-runtime';
 import '../styles/style.css';
 import '../styles/responsive.css';
@@ -9,6 +8,8 @@ import swRegister from './utils/sw-register';
 import WebSocketInitiator from './utils/websocket-initiator';
 import FooterToolsInitiator from './utils/footer-tools-initiator';
 import CONFIG from './globals/config';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
 const app = new App({
   button: document.querySelector('#hamburgerButton'),
