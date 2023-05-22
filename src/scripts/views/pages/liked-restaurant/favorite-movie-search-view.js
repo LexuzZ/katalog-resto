@@ -1,5 +1,5 @@
 /* eslint-disable import/named */
-import { createMovieItemTemplate } from '../../templates/template-creator';
+import { createRestaurantItemTemplate } from '../../templates/template-creator';
 
 class FavoriteMovieSearchView {
   getTemplate() {
@@ -7,7 +7,7 @@ class FavoriteMovieSearchView {
       <div class="content">
       <input id="query" type="text">
       <h2 class="content__heading">Your Liked Movie</h2>
-        <div id="movies" class="movies">
+        <div id="restaurants" class="restaurants">
         </div>
       </div>
    `;
@@ -19,25 +19,25 @@ class FavoriteMovieSearchView {
     });
   }
 
-  showMovies(movies) {
-    this.showFavoriteMovies(movies);
+  showRestaurant(restaurants) {
+    this.showFavoriteRestaurant(restaurants);
   }
 
-  showFavoriteMovies(movies = []) {
+  showFavoriteRestaurant(restaurants = []) {
     let html;
-    if (movies.length) {
-      html = movies.reduce((carry, movie) => carry.concat(createMovieItemTemplate(movie)), '');
+    if (restaurants.length) {
+      html = restaurants.reduce((carry, restaurant) => carry.concat(createRestaurantItemTemplate(restaurant)), '');
     } else {
       html = this._getEmptyMovieTemplate();
     }
 
-    document.getElementById('movies').innerHTML = html;
+    document.getElementById('restaurants').innerHTML = html;
 
-    document.getElementById('movies').dispatchEvent(new Event('movies:updated'));
+    document.getElementById('restaurants').dispatchEvent(new Event('restaurants:updated'));
   }
 
   _getEmptyMovieTemplate() {
-    return '<div class="movie-item__not__found movies__not__found">Tidak ada film untuk ditampilkan</div>';
+    return '<div class="restaurants-item__not__found restaurants__not__found">Tidak ada restoran untuk ditampilkan</div>';
   }
 }
 

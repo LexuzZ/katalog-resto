@@ -2,57 +2,57 @@
 /* eslint-disable no-undef */
 import { itActsAsFavoriteMovieModel } from './contract/favoriteRestaurantContract';
 
-let favoriteMovies = [];
+let favoriteRestaurant = [];
 
 const FavoriteMovieArray = {
 
-  getMovie(id) {
+  getRestaurant(id) {
     if (!id) {
       return;
     }
 
-    return favoriteMovies.find((movie) => movie.id === id);
+    return favoriteRestaurant.find((restaurant) => restaurant.id === id);
   },
 
-  getAllMovies() {
-    return favoriteMovies;
+  getAllRestaurant() {
+    return favoriteRestaurant;
   },
 
-  putMovie(movie) {
-    if (!movie.hasOwnProperty('id')) {
+  putRestaurant(restaurant) {
+    if (!restaurant.hasOwnProperty('id')) {
       return;
     }
 
-    // pastikan id ini belum ada dalam daftar favoriteMovies
-    if (this.getMovie(movie.id)) {
+    // pastikan id ini belum ada dalam daftar favoriteRestaurant
+    if (this.getRestaurant(restaurant.id)) {
       return;
     }
 
-    favoriteMovies.push(movie);
+    favoriteRestaurant.push(restaurant);
   },
 
-  deleteMovie(id) {
+  deleteRestaurant(id) {
     // cara boros menghapus film dengan meng-copy film yang ada
     // kecuali film dengan id == id
-    favoriteMovies = favoriteMovies.filter((movie) => movie.id !== id);
+    favoriteRestaurant = favoriteRestaurant.filter((restaurant) => restaurant.id !== id);
   },
 
-  searchMovies(query) {
-    return this.getAllMovies()
-      .filter((movie) => {
-        const loweredCaseMovieTitle = (movie.title || '-').toLowerCase();
-        const jammedMovieTitle = loweredCaseMovieTitle.replace(/\s/g, '');
+  searchRestaurant(query) {
+    return this.getAllRestaurant()
+      .filter((restaurant) => {
+        const loweredCaseRestaurantTitle = (restaurant.name || '-').toLowerCase();
+        const jammedRestaurantTitle = loweredCaseRestaurantTitle.replace(/\s/g, '');
 
         const loweredCaseQuery = query.toLowerCase();
         const jammedQuery = loweredCaseQuery.replace(/\s/g, '');
 
-        return jammedMovieTitle.indexOf(jammedQuery) !== -1;
+        return jammedRestaurantTitle.indexOf(jammedQuery) !== -1;
       });
   },
 };
 
-describe('Favorite Movie Array Contract Test Implementation', () => {
-  afterEach(() => favoriteMovies = []);
+describe('Favorite restaurant Array Contract Test Implementation', () => {
+  afterEach(() => favoriteRestaurant = []);
 
   itActsAsFavoriteMovieModel(FavoriteMovieArray);
 });

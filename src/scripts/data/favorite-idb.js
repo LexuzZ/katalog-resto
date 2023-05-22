@@ -9,37 +9,37 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
   },
 });
 
-const FavoriteMovieIdb = {
-  async getMovie(id) {
+const FavoriteIdb = {
+  async getRestaurant(id) {
     if (!id) {
       return;
     }
 
     return (await dbPromise).get(OBJECT_STORE_NAME, id);
   },
-  async getAllMovies() {
+  async getAllRestaurant() {
     return (await dbPromise).getAll(OBJECT_STORE_NAME);
   },
-  async putMovie(movie) {
-    if (!movie.hasOwnProperty('id')) {
+  async putRestaurant(restaurant) {
+    if (!restaurant.hasOwnProperty('id')) {
       return;
     }
 
-    return (await dbPromise).put(OBJECT_STORE_NAME, movie);
+    return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
   },
-  async deleteMovie(id) {
+  async deleteRestaurant(id) {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);
   },
-  async searchMovies(query) {
-    return (await this.getAllMovies()).filter((movie) => {
-      const loweredCaseMovieTitle = (movie.title || '-').toLowerCase();
-      const jammedMovieTitle = loweredCaseMovieTitle.replace(/\s/g, '');
+  async searchRestaurant(query) {
+    return (await this.getAllRestaurant()).filter((restaurant) => {
+      const loweredCaseRestaurantTitle = (restaurant.name || '-').toLowerCase();
+      const jammedRestaurantTitle = loweredCaseRestaurantTitle.replace(/\s/g, '');
 
       const loweredCaseQuery = query.toLowerCase();
       const jammedQuery = loweredCaseQuery.replace(/\s/g, '');
 
-      return jammedMovieTitle.indexOf(jammedQuery) !== -1;
+      return jammedRestaurantTitle.indexOf(jammedQuery) !== -1;
     });
   },
 };
-export default FavoriteMovieIdb;
+export default FavoriteIdb;

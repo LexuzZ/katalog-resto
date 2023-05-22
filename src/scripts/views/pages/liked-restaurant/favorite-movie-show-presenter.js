@@ -1,18 +1,18 @@
 class FavoriteMovieShowPresenter {
-  constructor({ view, favoriteMovies }) {
+  constructor({ view, favoriteRestaurant }) {
     this._view = view;
-    this._favoriteMovies = favoriteMovies;
+    this._favoriteRestaurant = favoriteRestaurant;
 
-    this._showFavoriteMovies();
+    this._showFavoriteRestaurant();
   }
 
-  async _showFavoriteMovies() {
-    const movies = await this._favoriteMovies.getAllMovies();
-    this._displayMovies(movies);
+  async _showFavoriteRestaurant() {
+    const restaurants = await this._favoriteRestaurant.getAllRestaurant();
+    this._displayRestaurant(restaurants);
   }
 
-  _displayMovies(movies) {
-    this._view.showFavoriteMovies(movies);
+  _displayRestaurant(restaurants) {
+    this._view.showFavoriteRestaurant(restaurants);
   }
 }
 

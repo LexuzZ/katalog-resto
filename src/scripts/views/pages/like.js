@@ -1,4 +1,4 @@
-import FavoriteMovieIdb from '../../data/favorite-idb';
+import FavoriteIdb from '../../data/favorite-idb';
 import FavoriteMovieSearchView from './liked-restaurant/favorite-movie-search-view';
 import FavoriteMovieShowPresenter from './liked-restaurant/favorite-movie-show-presenter';
 import FavoriteMovieSearchPresenter from './liked-restaurant/favorite-movie-search-presenter';
@@ -11,8 +11,8 @@ const Like = {
   },
 
   async afterRender() {
-    new FavoriteMovieShowPresenter({ view, favoriteMovies: FavoriteMovieIdb });
-    new FavoriteMovieSearchPresenter({ view, favoriteMovies: FavoriteMovieIdb });
+    new FavoriteMovieShowPresenter({ view, favoriteRestaurant: FavoriteIdb });
+    new FavoriteMovieSearchPresenter({ view, favoriteRestaurant: FavoriteIdb });
   },
 };
 
